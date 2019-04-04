@@ -26,6 +26,8 @@
                 android:exported="true" >
         </service>
 
+        <activity android:name=".ui.NotificationActivity"/>
+
     </application>
 
 </manifest>
