@@ -8,4 +8,8 @@
         <item>With</item>
         <item>Test</item>
     </string-array>
+
+    <string name="hint_word">Input any words</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Word not saved because it is empty.</string>
 </resources>

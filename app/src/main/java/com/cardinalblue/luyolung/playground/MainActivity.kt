@@ -34,6 +34,12 @@ class MainActivity : AppCompatActivity() {
                 this.startActivity(intent)
             }
 
+        RxView.clicks(function_room_btn)
+            .subscribeUntil(lifeCycle) {
+                val intent = Intent(this, RoomActivity::class.java)
+                this.startActivity(intent)
+            }
+
         RxView.clicks(function_content_provider_btn)
             .subscribeUntil(lifeCycle) {
                 val intent = Intent(this, ContentProviderActivity::class.java)
