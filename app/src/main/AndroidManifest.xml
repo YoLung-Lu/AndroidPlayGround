@@ -27,6 +27,10 @@
         </service>
 
         <activity android:name=".ui.NotificationActivity"/>
+        <activity android:name=".ui.ContentProviderActivity"/>
+        <provider
+            android:name=".db.MyContentProvider"
+            android:authorities="com.cardinalblue.luyolung.playground.provider" />
 
     </application>
 

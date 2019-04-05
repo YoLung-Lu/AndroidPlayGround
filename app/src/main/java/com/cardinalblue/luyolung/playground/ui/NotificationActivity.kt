@@ -20,6 +20,11 @@ import android.support.v4.app.NotificationManagerCompat
 import com.cardinalblue.luyolung.util.observableTimer
 import io.reactivex.schedulers.Schedulers
 
+/**
+ * Reference:
+ *   https://www.techotopia.com/index.php/An_Android_8_Notifications_Kotlin_Tutorial
+ *   https://medium.com/@britt.barak/notifications-part-2-progress-indicator-2aa4cdea24c6
+ */
 class NotificationActivity: AppCompatActivity() {
 
     private val lifeCycle = CompletableSubject.create()

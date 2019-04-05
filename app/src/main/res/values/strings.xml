@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">AndroidPlayGround</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="sentence">
+        <item>Android</item>
+        <item>ContentProvider</item>
+        <item>With</item>
+        <item>Test</item>
+    </string-array>
 </resources>

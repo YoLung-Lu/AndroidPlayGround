@@ -5,8 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import com.cardinalblue.luyolung.playground.ui.NotificationActivity
-import com.cardinalblue.luyolung.playground.ui.NotificationServiceView
+import com.cardinalblue.luyolung.playground.ui.*
 import com.cardinalblue.luyolung.util.subscribeUntil
 import com.jakewharton.rxbinding2.view.RxView
 import io.reactivex.subjects.CompletableSubject
@@ -32,6 +31,12 @@ class MainActivity : AppCompatActivity() {
         RxView.clicks(function_notification_btn)
             .subscribeUntil(lifeCycle) {
                 val intent = Intent(this, NotificationActivity::class.java)
+                this.startActivity(intent)
+            }
+
+        RxView.clicks(function_content_provider_btn)
+            .subscribeUntil(lifeCycle) {
+                val intent = Intent(this, ContentProviderActivity::class.java)
                 this.startActivity(intent)
             }
     }
