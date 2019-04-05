@@ -2,8 +2,6 @@ package com.cardinalblue.luyolung.playground.db
 
 import android.arch.lifecycle.LiveData
 import android.support.annotation.WorkerThread
-import com.cardinalblue.luyolung.playground.db.dao.WordDao
-import com.cardinalblue.luyolung.playground.model.Word
 
 
 /**

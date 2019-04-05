@@ -60,9 +60,9 @@
             android:id="@+id/function_room_btn"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:text="Notification"
+            android:text="Room"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/function_service_btn"
+            app:layout_constraintLeft_toRightOf="@id/function_notification_btn"
             app:layout_constraintRight_toLeftOf="@id/function_content_provider_btn"
             app:layout_constraintTop_toTopOf="parent"
             />

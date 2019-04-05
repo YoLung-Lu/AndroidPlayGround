@@ -28,8 +28,7 @@
 
         <activity android:name=".ui.NotificationActivity"/>
         <activity android:name=".ui.ContentProviderActivity"/>
-        <activity android:name=".ui.RoomActivity"/>
-        <activity android:name=".ui.NewWordActivity"></activity>
+
         <provider
             android:name=".db.MyContentProvider"
             android:authorities="com.cardinalblue.luyolung.playground.provider" />

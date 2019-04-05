@@ -1,4 +1,4 @@
-package com.cardinalblue.luyolung.playground.ui
+package com.cardinalblue.luyolung.room
 
 import android.app.Activity
 import android.arch.lifecycle.Observer
@@ -8,15 +8,13 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 import android.widget.Toast
-import com.cardinalblue.luyolung.playground.R
-import com.cardinalblue.luyolung.playground.model.Word
-import com.cardinalblue.luyolung.playground.ui.adapter.WordListAdapter
-import com.cardinalblue.luyolung.playground.viewmodel.WordViewModel
+import com.cardinalblue.luyolung.playground.db.Word
+import com.cardinalblue.luyolung.playground.db.WordViewModel
 import com.cardinalblue.luyolung.util.subscribeUntil
 import com.jakewharton.rxbinding2.view.RxView
 import io.reactivex.subjects.CompletableSubject
-import kotlinx.android.synthetic.main.activity_room.*
 
 /**
  * Reference:
@@ -33,6 +31,7 @@ class RoomActivity : AppCompatActivity() {
         setContentView(R.layout.activity_room)
 
         val wordList = findViewById<RecyclerView>(R.id.wordList)
+        val btn = findViewById<View>(R.id.function_new_word_btn)
 
         val adapter = WordListAdapter(this)
         wordList.adapter = adapter
@@ -49,7 +48,7 @@ class RoomActivity : AppCompatActivity() {
             words?.let { adapter.setWords(it) }
         })
 
-        RxView.clicks(function_new_word_btn)
+        RxView.clicks(btn)
             .subscribeUntil(lifeCycle) {
                 val intent = Intent(this@RoomActivity, NewWordActivity::class.java)
                 startActivityForResult(intent, newWordActivityRequestCode)
@@ -71,7 +70,8 @@ class RoomActivity : AppCompatActivity() {
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
             intentData?.let { data ->
-                val word = Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY))
+                val word =
+                    Word(data.getStringExtra(NewWordActivity.EXTRA_REPLY))
                 wordViewModel.insert(word)
             }
         } else {

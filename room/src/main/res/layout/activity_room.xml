@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.RoomActivity">
+    tools:context=".RoomActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/wordList"
@@ -46,7 +46,7 @@
             android:layout_height="@dimen/btn_height"
             android:text="Notification"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/function_service_btn"
+            app:layout_constraintLeft_toRightOf="@id/function_new_word_btn"
             app:layout_constraintRight_toLeftOf="@id/function_content_provider_btn"
             app:layout_constraintTop_toTopOf="parent"
             />

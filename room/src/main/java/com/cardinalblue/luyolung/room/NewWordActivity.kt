@@ -1,4 +1,4 @@
-package com.cardinalblue.luyolung.playground.ui
+package com.cardinalblue.luyolung.room
 
 /*
  * Copyright (C) 2017 Google Inc.
@@ -23,7 +23,6 @@ import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
-import com.cardinalblue.luyolung.playground.R
 
 /**
  * Activity for entering a word.

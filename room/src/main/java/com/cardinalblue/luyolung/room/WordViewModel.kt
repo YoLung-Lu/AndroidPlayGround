@@ -1,11 +1,8 @@
-package com.cardinalblue.luyolung.playground.viewmodel
+package com.cardinalblue.luyolung.playground.db
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.LiveData
-import com.cardinalblue.luyolung.playground.db.WordRepository
-import com.cardinalblue.luyolung.playground.db.WordRoomDatabase
-import com.cardinalblue.luyolung.playground.model.Word
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

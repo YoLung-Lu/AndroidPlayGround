@@ -1,10 +1,9 @@
-package com.cardinalblue.luyolung.playground.db.dao
+package com.cardinalblue.luyolung.playground.db
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
-import com.cardinalblue.luyolung.playground.model.Word
 
 @Dao
 interface WordDao {

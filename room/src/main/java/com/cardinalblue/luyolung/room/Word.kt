@@ -1,4 +1,4 @@
-package com.cardinalblue.luyolung.playground.model
+package com.cardinalblue.luyolung.playground.db
 
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
