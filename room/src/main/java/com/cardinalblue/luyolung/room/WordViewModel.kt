@@ -43,6 +43,10 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         repository.insert(word)
     }
 
+    fun delete(word: Word) = scope.launch(Dispatchers.IO) {
+        repository.delete(word)
+    }
+
     override fun onCleared() {
         super.onCleared()
         parentJob.cancel()

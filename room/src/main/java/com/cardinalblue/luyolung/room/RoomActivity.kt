@@ -8,20 +8,24 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.view.View
 import android.widget.Toast
 import com.cardinalblue.luyolung.playground.db.Word
 import com.cardinalblue.luyolung.playground.db.WordViewModel
 import com.cardinalblue.luyolung.util.subscribeUntil
 import com.jakewharton.rxbinding2.view.RxView
 import io.reactivex.subjects.CompletableSubject
+import kotlinx.android.synthetic.main.activity_room.*
 
 /**
  * Reference:
+ * https://codelabs.developers.google.com/codelabs/android-room-with-a-view-kotlin/#0
  */
 class RoomActivity : AppCompatActivity() {
 
     private val lifeCycle = CompletableSubject.create()
+
+    private val STRING_LENGTH = 10
+    private val charPool : List<Char> = ('a'..'z') + ('A'..'Z') + ('0'..'9')
 
     private val newWordActivityRequestCode = 1
     private lateinit var wordViewModel: WordViewModel
@@ -31,7 +35,6 @@ class RoomActivity : AppCompatActivity() {
         setContentView(R.layout.activity_room)
 
         val wordList = findViewById<RecyclerView>(R.id.wordList)
-        val btn = findViewById<View>(R.id.function_new_word_btn)
 
         val adapter = WordListAdapter(this)
         wordList.adapter = adapter
@@ -48,17 +51,31 @@ class RoomActivity : AppCompatActivity() {
             words?.let { adapter.setWords(it) }
         })
 
-        RxView.clicks(btn)
+        RxView.clicks(function_new_word_btn)
             .subscribeUntil(lifeCycle) {
                 val intent = Intent(this@RoomActivity, NewWordActivity::class.java)
                 startActivityForResult(intent, newWordActivityRequestCode)
             }
 
-//        RxView.clicks(function_progress_btn)
-//            .subscribeUntil(lifeCycle) {
-//                sendProgressNotification()
-//            }
+        RxView.clicks(function_remove_btn)
+            .subscribeUntil(lifeCycle) {
+                wordViewModel.allWords.value?.firstOrNull()?.let {
+                    wordViewModel.delete(it)
+                }
+            }
+
+        RxView.clicks(random_btn)
+            .subscribeUntil(lifeCycle) {
+                val word = Word(randomString())
+                wordViewModel.insert(word)
+            }
     }
+
+    private fun randomString(): String =
+        (1..STRING_LENGTH)
+            .map { kotlin.random.Random.nextInt(0, charPool.size) }
+            .map(charPool::get)
+            .joinToString("")
 
     override fun onDestroy() {
         super.onDestroy()

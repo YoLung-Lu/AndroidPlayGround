@@ -36,28 +36,28 @@
             android:text="New word"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/function_notification_btn"
+            app:layout_constraintRight_toLeftOf="@id/function_remove_btn"
             app:layout_constraintTop_toTopOf="parent"
             />
 
         <Button
-            android:id="@+id/function_notification_btn"
+            android:id="@+id/function_remove_btn"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:text="Notification"
+            android:text="Remove word"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toRightOf="@id/function_new_word_btn"
-            app:layout_constraintRight_toLeftOf="@id/function_content_provider_btn"
+            app:layout_constraintRight_toLeftOf="@id/random_btn"
             app:layout_constraintTop_toTopOf="parent"
             />
 
         <Button
-            android:id="@+id/function_content_provider_btn"
+            android:id="@+id/random_btn"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:text="Content Provider"
+            android:text="Random word"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/function_notification_btn"
+            app:layout_constraintLeft_toRightOf="@id/function_remove_btn"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />

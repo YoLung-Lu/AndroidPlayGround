@@ -2,6 +2,7 @@ package com.cardinalblue.luyolung.playground.db
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
+import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
 
@@ -20,6 +21,9 @@ interface WordDao {
     // column, you can use @Insert(onConflict = OnConflictStrategy.REPLACE) to update a row.
     @Insert
     fun insert(word: Word)
+
+    @Delete
+    fun delete(word: Word)
 
     @Query("DELETE FROM word_table")
     fun deleteAll()
