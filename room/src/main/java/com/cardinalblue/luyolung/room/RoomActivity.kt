@@ -11,6 +11,7 @@ import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import com.cardinalblue.luyolung.playground.db.Word
 import com.cardinalblue.luyolung.playground.db.WordViewModel
+import com.cardinalblue.luyolung.room.ui.WordListAdapter
 import com.cardinalblue.luyolung.util.subscribeUntil
 import com.jakewharton.rxbinding2.view.RxView
 import io.reactivex.subjects.CompletableSubject

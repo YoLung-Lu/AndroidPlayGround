@@ -1,10 +1,11 @@
-package com.cardinalblue.luyolung.room
+package com.cardinalblue.luyolung.room.ui
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.*
 import android.widget.TextView
 import com.cardinalblue.luyolung.playground.db.Word
+import com.cardinalblue.luyolung.room.R
 
 class WordListAdapter internal constructor(context: Context) :
     RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {

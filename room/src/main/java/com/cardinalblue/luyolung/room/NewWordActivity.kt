@@ -21,14 +21,23 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import com.cardinalblue.luyolung.room.ui.KeyboardManager
+import com.cardinalblue.luyolung.room.ui.KeyboardStatus
+import com.cardinalblue.luyolung.util.subscribeUntil
+import io.reactivex.subjects.CompletableSubject
+
 
 /**
  * Activity for entering a word.
  */
 
 class NewWordActivity : AppCompatActivity() {
+
+    // State.
+    private val lifeCycle = CompletableSubject.create()
 
     private lateinit var editWordView: EditText
 
@@ -49,6 +58,17 @@ class NewWordActivity : AppCompatActivity() {
             }
             finish()
         }
+
+        // Observe keyboard state.
+        KeyboardManager(this).status()
+            .subscribeUntil(lifeCycle) {
+                Log.i("test", it.toString())
+            }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        lifeCycle.onComplete()
     }
 
     companion object {
