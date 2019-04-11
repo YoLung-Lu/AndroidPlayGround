@@ -5,26 +5,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".RoomActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/wordList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </android.support.design.widget.AppBarLayout>
-
-    <include layout="@layout/content_main" />
+        android:layout_height="0dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button_bar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:listitem="@layout/item_word" />
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/button_bar"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal"
@@ -35,50 +30,38 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/function_service_btn"
+            android:id="@+id/function_new_word_btn"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:text="BG Service"
+            android:text="New word"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toLeftOf="@id/function_notification_btn"
+            app:layout_constraintRight_toLeftOf="@id/function_remove_btn"
             app:layout_constraintTop_toTopOf="parent"
             />
 
         <Button
-            android:id="@+id/function_notification_btn"
+            android:id="@+id/function_remove_btn"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:text="Notification"
+            android:text="Remove word"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/function_service_btn"
-            app:layout_constraintRight_toLeftOf="@id/function_room_btn"
+            app:layout_constraintLeft_toRightOf="@id/function_new_word_btn"
+            app:layout_constraintRight_toLeftOf="@id/random_btn"
             app:layout_constraintTop_toTopOf="parent"
             />
 
         <Button
-            android:id="@+id/function_room_btn"
+            android:id="@+id/random_btn"
             android:layout_width="@dimen/btn_width"
             android:layout_height="@dimen/btn_height"
-            android:text="Room"
+            android:text="Random word"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/function_notification_btn"
-            app:layout_constraintRight_toLeftOf="@id/function_content_provider_btn"
-            app:layout_constraintTop_toTopOf="parent"
-            />
-
-        <Button
-            android:id="@+id/function_content_provider_btn"
-            android:layout_width="@dimen/btn_width"
-            android:layout_height="@dimen/btn_height"
-            android:text="Content Provider"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/function_room_btn"
+            app:layout_constraintLeft_toRightOf="@id/function_remove_btn"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             />
 
     </android.support.constraint.ConstraintLayout>
-
 
 </android.support.constraint.ConstraintLayout>

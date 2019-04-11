@@ -14,9 +14,9 @@ import com.cardinalblue.luyolung.playground.R
 import com.cardinalblue.luyolung.util.subscribeUntil
 import com.jakewharton.rxbinding2.view.RxView
 import io.reactivex.subjects.CompletableSubject
-import kotlinx.android.synthetic.main.activity_notification.*
 import android.support.v4.app.NotificationCompat
 import android.support.v4.app.NotificationManagerCompat
+import android.widget.Button
 import com.cardinalblue.luyolung.util.observableTimer
 import io.reactivex.schedulers.Schedulers
 
@@ -42,6 +42,9 @@ class NotificationActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notification)
 
+        val notification_btn = findViewById<Button>(R.id.function_x_btn)
+        val progress_btn = findViewById<Button>(R.id.function_progress_btn)
+
         notificationManager =
             getSystemService(
                 Context.NOTIFICATION_SERVICE) as NotificationManager
@@ -56,12 +59,12 @@ class NotificationActivity: AppCompatActivity() {
             "Notify Progress",
             "Download Progress Channel")
 
-        RxView.clicks(function_x_btn)
+        RxView.clicks(notification_btn)
             .subscribeUntil(lifeCycle) {
                 sendSimpleNotification()
             }
 
-        RxView.clicks(function_progress_btn)
+        RxView.clicks(progress_btn)
             .subscribeUntil(lifeCycle) {
                 sendProgressNotification()
             }
